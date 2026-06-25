@@ -92,7 +92,7 @@ type Service struct {
 }
 
 func init() {
-	togo.RegisterProviderFunc("knowledge-base", togo.PriorityService, func(k *togo.Kernel) error {
+	togo.RegisterProviderFunc("knowledge-base", togo.PriorityLate+10, func(k *togo.Kernel) error {
 		s := newService()
 		k.Set("knowledge-base", s)
 		if k.Router != nil {
